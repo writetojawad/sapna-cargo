@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapna Cargo Service</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 22px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-around;
+            background-color: #e9ecef;
+            padding: 10px;
+        }
+
+        .nav-buttons button {
+            flex: 1;
+            margin: 0 5px;
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+		
+		 .auth-button {
+            background-color: #28a745;
+        }
+
+        .auth-button:hover {
+            background-color: #218838;
+        }
+		
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+		
+        button.save-btn {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        button.save-btn:hover {
+            background-color: #218838;
+        }
+
+        .entry-card {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.05);
+        }
+
+        .entry-card button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+	 
+
+<div class="container">
+<header>
+	<!-- Intro and Login Page -->
+    <div id="auth">
+    SAPNA CARGO SERVICE
+	<div style="text-align: right; margin: 10px;">
+	</div>
+</header>
+	<div class="nav-buttons">
+    <button onclick="showPage('welcomePage')">Home</button>
+    <button onclick="showPage('entryPage')">New Entry</button>
+    <button onclick="showPage('dataPage')">Saved Data</button>
+</div>
+
+
+<!-- Welcome Page -->
+<div id="welcomePage" class="page active">
+   <!-- Logo -->
+<div style="text-align: center; margin-top: 20px;">
+  <img src="C:/Users/HP/Downloads/logo.png" alt="Sapna Cargo Logo" style="width: 350px; height: auto;">
+  <h1>SAPNA CARGO SERVICE</h1>
+
+</div>
+
+<!-- Title -->
+	</div>
+<!-- Entry Page -->
+<div id="entryPage" class="page">
+	
+    <h2>New Entry</h2>
+    <div class="form-group">
+		<div style="display: flex; gap: 10px; align-items: center;">
+        <label>Car No:</label>
+        <select id="carNo">
+            <option>6055</option>
+            <option>7055</option>
+            <option>4055</option>
+            <option>3645</option>
+            <option>315</option>
+            <option>Others</option>
+        </select>
+		 <label>Date and Time:</label>
+        <input type="datetime-local" id="dateTime">
+		</div>
+    </div>
+    <div class="form-group">
+        <label>Conductor Name:</label>
+        <select id="conductorName">
+            <option>Salman</option>
+            <option>Kashif</option>
+            <option>Mansoor</option>
+            <option>Adnan</option>
+            <option>Ameen</option>
+            <option>Ijaz</option>
+            <option>Gulam Nabi</option>
+            <option>Ahmad Shah</option>
+            <option>Amjid</option>
+            <option>Abdullah</option>
+            <option>Other</option>
+        </select>
+    </div>
+   
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" id="name">
+    </div>
+    <div class="form-group">
+        <label>Phone No:</label>
+        <input type="text" id="phone">
+    </div>
+    <div class="form-group">
+		
+        <label>Item Type:</label>
+        <input type="text" id="itemType">
+		 
+    </div>
+    <div class="form-group">
+		<div style="display: flex; gap: 10px; align-items: center;">
+       <label>Qutity:</label>
+        <input type="number" id="quantity">
+		 <label>Naqad Amnt:</label>
+        <input type="number" id="naqadAmount">
+    </div>
+	</div>
+   
+    <div class="form-group">
+		<div style="display: flex; gap: 10px; align-items: center;">
+        <label>Rent:</label>
+        <input type="number" id="rent">
+		 <label>Rent Status:</label>
+        <select id="rentStatus">
+            <option>Received</option>
+            <option>Remaining</option>
+        </select>
+		</div>
+    </div>
+	
+    <div class="form-group">
+        <label>Wage:</label>
+        <input type="number" id="wage">
+    </div>
+    <div class="form-group">
+        <label>Address:</label>
+        <select id="address">
+            <option>Mardan</option>
+            <option>Nowshera</option>
+            <option>Swabi</option>
+            <option>Swat</option>
+        </select>
+    </div>
+    
+
+    <button class="save-btn" onclick="saveEntry()">Save Entry</button>
+</div>
+
+<!-- Data Page -->
+<div id="dataPage" class="page">
+    <h2>Saved Entries</h2>
+	<div class="button-container">
+		 <!-- Generate PDF Button -->
+		 <button onclick="shareOnWhatsApp()"style="background-color: #17a2b8;">Download PDF</button>
+        
+    <div id="entriesList"></div>
+		
+    </div>
+   
+</div>
+</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+		
+		
+<script>
+ 
+
+let entries = JSON.parse(localStorage.getItem('entries')) || [];
+
+	 
+
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    if (pageId === 'dataPage') displayEntries();
+}
+		
+function saveEntry() {
+    const entry = {
+        carNo: document.getElementById('carNo').value,
+        conductorName: document.getElementById('conductorName').value,
+        dateTime: document.getElementById('dateTime').value,
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        itemType: document.getElementById('itemType').value,
+        quantity: document.getElementById('quantity').value,
+        naqadAmount: document.getElementById('naqadAmount').value,
+        rent: document.getElementById('rent').value,
+        wage: document.getElementById('wage').value,
+        address: document.getElementById('address').value,
+        rentStatus: document.getElementById('rentStatus').value
+    };
+
+    entries.push(entry);
+    localStorage.setItem('entries', JSON.stringify(entries));
+    alert('Entry Saved Successfully!');
+    clearForm();
+}
+
+function clearForm() {
+    document.querySelectorAll('#entryPage input, #entryPage select').forEach(el => el.value = '');
+}
+
+function displayEntries() {
+    const list = document.getElementById('entriesList');
+    list.innerHTML = '';
+    entries.forEach((entry, index) => {
+        const card = document.createElement('div');
+        card.className = 'entry-card';
+        card.innerHTML = `
+            <b>Car No:</b> ${entry.carNo}<br>
+            <b>Conductor:</b> ${entry.conductorName}<br>
+            <b>Date/Time:</b> ${entry.dateTime}<br>
+            <b>Name:</b> ${entry.name}<br>
+            <b>Phone:</b> ${entry.phone}<br>
+            <b>Item:</b> ${entry.itemType}<br>
+            <b>Quantity:</b> ${entry.quantity}<br>
+            <b>Naqad:</b> ${entry.naqadAmount}<br>
+            <b>Rent:</b> ${entry.rent}<br>
+            <b>Wage:</b> ${entry.wage}<br>
+            <b>Address:</b> ${entry.address}<br>
+            <b>Rent Status:</b> ${entry.rentStatus}<br>
+            <button onclick="deleteEntry(${index})">Delete</button>
+        `;
+        list.appendChild(card);
+    });
+}
+			 function saveData() {
+            if (entries.length >= 30) {
+                alert("Maximum 30 entries are allowed.");
+                return; // Prevent further entries
+            }
+			
+            const entry = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        itemType: document.getElementById("itemType").value,
+        quantity: document.getElementById("quantity").value,
+        naqadAmount: document.getElementById("naqadAmount").value,
+        rent: document.getElementById("rent").value,
+		rentStatus: document.getElementById("rentStatus").value,// new
+        wage: document.getElementById("wage").value,
+        address: document.getElementById("address").value,
+        carNo: document.getElementById("carNo").value, // new
+        conductorName: document.getElementById("conductorName").value, // new
+        dateTime: document.getElementById("dateTime").value // new
+    };
+
+
+            entries.push(entry);
+            localStorage.setItem("entries", JSON.stringify(entries));
+            alert("Entry saved!");
+			
+	
+            // Keep the form visible and clear fields 
+           
+    document.getElementById("name").value = '';
+    document.getElementById("phone").value = '';
+    document.getElementById("itemType").value = '';
+    document.getElementById("quantity").value = '';
+    document.getElementById("naqadAmount").value = '';
+    document.getElementById("rent").value = '';
+	document.getElementById("rentStatus").value = 'Remaining';
+    document.getElementById("wage").value = '';
+    document.getElementById("address").value = 'Mardan'; // Reset to default address
+    document.getElementById("carNo").value = '6055';
+    document.getElementById("conductorName").value = 'Salman';
+	document.getElementById("dateTime").value = '';
+	}
+			// Refresh the displayed data without hiding the form
+            showData();
+       
+		function showData() {
+            const savedEntries = JSON.parse(localStorage.getItem("entries"));
+            let html = "<ul>";
+            savedEntries.forEach((entry, index) => {
+                html += `<li>${entry.name} - ${entry.phone} - ${entry.address} <button onclick="deleteEntry(${index})">Delete</button></li>`;
+            });
+            html += "</ul>";
+            document.getElementById("dataList").innerHTML = html;
+        }
+
+        function deleteEntry(index) {
+            entries.splice(index, 1);
+            localStorage.setItem("entries", JSON.stringify(entries));
+            showData();
+        }
+function deleteEntry(index) {
+    entries.splice(index, 1);
+    localStorage.setItem('entries', JSON.stringify(entries));
+    displayEntries();
+}
+
+function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+
+    const savedEntries = JSON.parse(localStorage.getItem("entries"));
+
+    const headers = [
+	
+        ["carNo","Name", "Phone", "Item Type", "Qty", "Naqad", "Rent", "Rent Status", "Wage", "Address", "dateTime"]
+    ];
+
+    const rows = savedEntries.map(entry => [
+		entry.carNo,
+        entry.name,
+        entry.phone,
+        entry.itemType,
+        entry.quantity.toString(),
+        entry.naqadAmount.toString(),
+        entry.rent.toString(),
+		entry.rentStatus,
+        entry.wage.toString(),
+        entry.address,
+		entry.dateTime,
+    ]);
+
+    doc.autoTable({
+        head: headers,
+        body: rows,
+        startY: 20,
+        theme: 'grid',
+        headStyles: { fillColor: [0, 102, 204] }, // blue header
+        styles: {
+            fontSize: 10,
+            cellPadding: 1,
+            overflow: 'linebreak',
+        },
+        margin: { top: 20 }
+    });
+
+    doc.save("Sapna_Cargo_Entries.pdf");
+	
+}
+      function shareOnWhatsApp() {
+    generatePDF(); // Generate the PDF first
+
+    setTimeout(() => {
+        window.open(whatsappURL, "_blank");
+    }, 1000); // Delay to ensure PDF is saved
+	}    
+      
+	
+   
+</script>
+
+</body>
+</html>
